@@ -1,18 +1,18 @@
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
-import VerPedidos from './pages/VerPedidos'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Features from './components/Features'
+import Footer from './components/Footer'
+import './App.css'
 
-
-function App() {  
-
+export default function App() {
   return (
-    <BrowserRouter>      
-      <Routes>
-        <Route path="/" element={<Navigate to="/ver"/>} />
-        <Route path="/ver" element={<VerPedidos/>}/>
-      </Routes>
-    
-    </BrowserRouter>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Features />
+      </main>
+      <Footer />
+    </>
   )
 }
-
-export default App
