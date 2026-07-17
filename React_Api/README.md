@@ -100,7 +100,7 @@ pnpm --version
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/sicosis3dfx/React_Api.git
+git clone https://github.com/sicosis3dfx/EVA4-Proyecto8-ReactApi-AlexanderCortes-AngeloZamora.git
 ```
 
 ### 2. Ingresar al directorio del proyecto
