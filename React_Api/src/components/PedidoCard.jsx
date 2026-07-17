@@ -24,7 +24,7 @@ export default function PedidoCard({ pedido, onEliminar }) {
 
   const esDelivery = pedido.tipoEntrega === 'delivery';
 
-  // Función interna para mostrar el estado con un formato hermoso y sin guiones
+  
   const formatearEstado = (estadoDb) => {
     switch (estadoDb) {
       case 'en_preparacion':
@@ -49,11 +49,11 @@ export default function PedidoCard({ pedido, onEliminar }) {
         justifyContent: 'space-between', 
         border: '1px solid var(--border)',
         
-        // === NUEVOS ESTILOS PARA DIFUMINADO (GLASSMORPHISM) ===
-        background: 'rgba(15, 15, 20, 0.85)', // Fondo oscuro semitransparente (85% opacidad)
-        backdropFilter: 'blur(12px)',           // Difumina los elementos que están detrás de la tarjeta
-        WebkitBackdropFilter: 'blur(12px)',     // Compatibilidad para navegadores Safari/iOS
-        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)', // Sombra sutil para darle volumen tridimensional
+        
+        background: 'rgba(15, 15, 20, 0.85)', 
+        backdropFilter: 'blur(12px)',           
+        WebkitBackdropFilter: 'blur(12px)',     
+        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)', 
         
         borderRadius: '12px',
         padding: '2rem 1.5rem',

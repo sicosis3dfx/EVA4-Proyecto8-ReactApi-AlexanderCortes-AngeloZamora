@@ -4,21 +4,19 @@ import { crearPedido } from '../services/pedidosApi'
 export default function CartModal() {
   const [verCarrito, setVerCarrito] = useState(false)
   const [carrito, setCarrito] = useState([])
-  
-  // Estados para el cliente y el método de entrega
-  const [tipoEntrega, setTipoEntrega] = useState('retiro') // 'retiro' o 'delivery'
+  const [tipoEntrega, setTipoEntrega] = useState('retiro')
   const [nombreCliente, setNombreCliente] = useState('')
   const [telefonoCarrito, setTelefonoCarrito] = useState('')
   const [direccionCliente, setDireccionCliente] = useState('')
   const [errorCarrito, setErrorCarrito] = useState('')
 
-  // Efecto 1: Notifica el contador de pizzas al Navbar
+  
   useEffect(() => {
     const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0)
     window.dispatchEvent(new CustomEvent('cart-updated-count', { detail: totalItems }))
   }, [carrito])
 
-  // Efecto 2: Control de eventos personalizados limpios
+
   useEffect(() => {
     const abrirModalHandler = () => setVerCarrito(true)
 
@@ -72,13 +70,13 @@ export default function CartModal() {
   const pagarPedido = async (e) => {
     e.preventDefault()
 
-    // 1. Validar Nombre
+    
     if (!nombreCliente.trim()) {
       setErrorCarrito('Por favor, ingresa tu nombre completo.')
       return
     }
 
-    // 2. Validar Teléfono
+    
     if (!telefonoCarrito.trim()) {
       setErrorCarrito('Por favor, ingresa un número de teléfono obligatorio.')
       return
@@ -90,7 +88,7 @@ export default function CartModal() {
       return
     }
 
-    // 3. Validar Dirección de manera condicional si es delivery
+    
     if (tipoEntrega === 'delivery' && !direccionCliente.trim()) {
       setErrorCarrito('Por favor, ingresa la dirección para el despacho.')
       return
@@ -126,13 +124,13 @@ export default function CartModal() {
         fecha: new Date().toISOString()
       }
 
-      // Ocultamos el modal al tiro
+      
       setVerCarrito(false)
 
-      // Ejecutamos API
+      
       await crearPedido(datosPedido)
 
-      // Limpiamos todo
+      
       setCarrito([])
       setTelefonoCarrito('')
       setNombreCliente('')
@@ -177,7 +175,7 @@ export default function CartModal() {
             </div>
           ) : (
             <form onSubmit={pagarPedido}>
-              {/* Contenedor con scroll para los items */}
+              
               <div className="carrito-scroll-container">
                 {carrito.map((item, index) => {
                   const precioStr = item.precio ? String(item.precio) : '0'
@@ -206,7 +204,7 @@ export default function CartModal() {
                 })}
               </div>
 
-              {/* Selector de Tipo de Entrega */}
+              
               <div style={{ marginTop: '1.2rem', marginBottom: '1.2rem' }}>
                 <label style={{ color: '#fff', display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', fontWeight: '700' }}>
                   ¿Cómo quieres recibir tu pizza? *
@@ -249,9 +247,9 @@ export default function CartModal() {
                 </div>
               </div>
 
-              {/* Formulario de Datos */}
+              
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.5rem' }}>
-                {/* Nombre Completo */}
+                
                 <div>
                   <label style={{ color: '#fff', display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', fontWeight: '700' }}>
                     Tu Nombre Completo *
@@ -273,7 +271,7 @@ export default function CartModal() {
                   />
                 </div>
 
-                {/* Teléfono */}
+               
                 <div>
                   <label style={{ color: '#fff', display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', fontWeight: '700' }}>
                     Teléfono de Contacto *
@@ -291,7 +289,7 @@ export default function CartModal() {
                   </div>
                 </div>
 
-                {/* Dirección */}
+                
                 {tipoEntrega === 'delivery' && (
                   <div style={{ animation: 'fadeIn 0.3s ease' }}>
                     <label style={{ color: '#fff', display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', fontWeight: '700' }}>
@@ -318,7 +316,7 @@ export default function CartModal() {
                 {errorCarrito && <p className="msg-error" style={{ margin: 0, color: 'var(--accent)', fontSize: '0.85rem' }}>{errorCarrito}</p>}
               </div>
 
-              {/* Caja de Totales */}
+             
               <div className="carrito-total-box" style={{ marginBottom: '1.5rem' }}>
                 <span>Total a Pagar:</span>
                 <span className="total-amount">{calcularTotal()}</span>

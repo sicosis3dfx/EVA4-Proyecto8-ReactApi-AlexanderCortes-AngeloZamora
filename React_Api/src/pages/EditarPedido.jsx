@@ -22,7 +22,7 @@ export function EditarPedido() {
         if (data.estado) setEstado(data.estado);
         if (data.cliente?.nombre) setNombre(data.cliente.nombre);
         
-        // Limpiamos el prefijo +56 al editar si es que existe para facilitar la edición
+        
         if (data.cliente?.telefono) {
           setTelefono(data.cliente.telefono.replace('+56', ''));
         }
@@ -46,7 +46,7 @@ export function EditarPedido() {
       return;
     }
 
-    // Si es delivery (es decir, el pedido original no es retiro), exigimos dirección
+    
     const esDeliveryOriginal = pedido?.tipoEntrega === 'delivery';
     if (esDeliveryOriginal && !direccion.trim()) {
       alert("Por favor, ingresa la dirección para el despacho.");
@@ -90,7 +90,7 @@ export function EditarPedido() {
       
       <form onSubmit={handleGuardar} className="feature-card" style={{ border: '1px solid var(--border)', padding: '2rem', borderRadius: '12px', background: 'var(--card-bg)' }}>
         
-        {/* 1. Nombre del Cliente */}
+        
         <div style={{ marginBottom: '1.2rem', textAlign: 'left' }}>
           <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--muted)', fontWeight: '700' }}>
             Nombre del Cliente
@@ -103,7 +103,7 @@ export function EditarPedido() {
           />
         </div>
 
-        {/* 2. Teléfono de Contacto */}
+        
         <div style={{ marginBottom: '1.2rem', textAlign: 'left' }}>
           <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--muted)', fontWeight: '700' }}>
             Teléfono de Contacto (9 dígitos)
@@ -120,7 +120,7 @@ export function EditarPedido() {
           </div>
         </div>
 
-        {/* 3. Dirección */}
+        
         {esDeliveryOriginal && (
           <div style={{ marginBottom: '1.2rem', textAlign: 'left' }}>
             <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--muted)', fontWeight: '700' }}>
@@ -135,7 +135,7 @@ export function EditarPedido() {
           </div>
         )}
 
-        {/* 4. Estado del Pedido */}
+        
         <div style={{ marginBottom: '2rem', textAlign: 'left' }}>
           <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--muted)', fontWeight: '700' }}>
             Estado del Pedido
@@ -147,8 +147,7 @@ export function EditarPedido() {
           >
             <option value="en_preparacion">En Cocina 👩‍🍳</option>
             
-            {/* === LOGICA DE NEGOCIO CONDICIONAL === */}
-            {/* Solo se despliega la opción "En Reparto" si el pedido original requiere despacho */}
+            
             {esDeliveryOriginal && (
               <option value="en_camino">En Reparto 🛵</option>
             )}
@@ -157,7 +156,7 @@ export function EditarPedido() {
           </select>
         </div>
 
-        {/* Botones de acción */}
+      
         <div style={{ display: 'flex', gap: '1rem' }}>
           <button type="button" onClick={() => navigate('/ver')} className="btn-pizza-secondary" style={{ flex: 1, padding: '0.8rem 0', borderRadius: '6px', cursor: 'pointer' }}>
             Cancelar

@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <nav className='navbar'>
       <div className='navbar-container'>
-        {/* Cambiado a "/" para que el logo siempre te lleve al inicio limpio */}
+        
         <a href='/#hero' className='navbar-logo' style={{ textDecoration: 'none' }}>
           <span style={{ color: 'var(--accent)' }}>Pizza</span>
           <span style={{ color: '#fff' }}>Ita</span>
@@ -30,13 +30,13 @@ export default function Navbar() {
         </a>
         
         <ul className='navbar-links'>
-          {/* Agregamos la barra "/" antes del ancla para que redirija primero al home */}
+          
           <li><a href='/#hero'>Inicio</a></li>
           <li><a href='/#features'>Nuestro Menú</a></li>
           <li><a href='/#footer'>Contacto</a></li>
           
           
-          
+    
           <li>
             <button className='navbar-cta' onClick={abrirCarritoModal} style={{ border: 'none', cursor: 'pointer' }}>
               <i className="bi bi-cart3"></i> Pedido ({carritoCount})
@@ -77,7 +77,6 @@ export default function Navbar() {
       </div>
 
       <div className={`mobile-menu ${isopen ? 'open' : ''}`}>
-        {/* También corregimos los enlaces en el menú móvil */}
         <a href='/#hero' onClick={closeMenu}>Inicio</a>
         <a href='/#features' onClick={closeMenu}>Nuestro Menú</a>
         <a href='/#footer' onClick={closeMenu}>Contacto</a>

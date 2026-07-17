@@ -5,7 +5,7 @@ export default function EliminarPedido() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Redirigimos automáticamente a la cocina de pedidos
+    
     navigate("/ver");
   }, [navigate]);
 

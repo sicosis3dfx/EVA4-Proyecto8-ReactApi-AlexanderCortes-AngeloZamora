@@ -14,7 +14,7 @@ export default function VerPedidos(){
     useEffect(() => {
     getPedidos()
       .then((respuesta) => {
-        // Si la API responde con la estructura del ejemplo, extraemos .datos
+        
         if (respuesta && respuesta.datos) {
           setPedidos(Array.isArray(respuesta.datos) ? respuesta.datos : [])
         } else {
@@ -27,7 +27,7 @@ export default function VerPedidos(){
       .finally(() => setCargando(false))
   }, [])
 
-    // Función que elimina instantáneamente la tarjeta de la vista sin recargar
+    
     const handlePedidoEliminado = (idEliminado) => {
         setPedidos(prevPedidos => prevPedidos.filter(p => p._id !== idEliminado))
     }
@@ -39,10 +39,10 @@ export default function VerPedidos(){
 
         const texto = busqueda.toLowerCase().trim()
         
-        // Buscamos en el ID de MongoDB largo
+       
         const idRealStr = p._id ? p._id.toString().toLowerCase() : ''; 
         
-        // Buscamos en el ID cortito de 6 caracteres que ve el usuario en pantalla (ej: 98B35E)
+        
         const idAmigableStr = p._id ? p._id.substring(p._id.length - 6).toLowerCase() : '';
         
         const clienteNombre = p.cliente?.nombre || p.client || ''; 
