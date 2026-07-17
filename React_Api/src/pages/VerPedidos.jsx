@@ -11,16 +11,21 @@ export default function VerPedidos(){
     const [error, setError] = useState(null)
     const navigate = useNavigate()
 
-    useEffect(() =>{
-        getPedidos()
-        .then((datos) => {
-            setPedidos(Array.isArray(datos) ? datos : [])
-        })
-        .catch((err) => {
-            setError(err.message)
-        })
-        .finally(() => setCargando(false))
-    },[])
+    useEffect(() => {
+    getPedidos()
+      .then((respuesta) => {
+        // Si la API responde con la estructura del ejemplo, extraemos .datos
+        if (respuesta && respuesta.datos) {
+          setPedidos(Array.isArray(respuesta.datos) ? respuesta.datos : [])
+        } else {
+          setPedidos(Array.isArray(respuesta) ? respuesta : [])
+        }
+      })
+      .catch((err) => {
+        setError(err.message)
+      })
+      .finally(() => setCargando(false))
+  }, [])
 
     // Función que elimina instantáneamente la tarjeta de la vista sin recargar
     const handlePedidoEliminado = (idEliminado) => {

@@ -59,8 +59,10 @@ export default function CartModal() {
   }
 
   const calcularTotal = () => {
+    if (!carrito || carrito.length === 0) return '$0'
     const suma = carrito.reduce((acumulado, item) => {
-      const precioBase = parseInt(item.precio.replace('$', '').replaceAll('.', ''), 10)
+      const precioStr = item.precio ? String(item.precio) : '0'
+      const precioBase = parseInt(precioStr.replace('$', '').replaceAll('.', ''), 10) || 0
       const precioFinalUnidad = item.tamano === 'Familiar' ? precioBase + 3000 : precioBase
       return acumulado + (precioFinalUnidad * item.cantidad)
     }, 0)
@@ -107,7 +109,8 @@ export default function CartModal() {
           direccion: tipoEntrega === 'delivery' ? direccionCliente.trim() : "Retiro en local"
         },
         items: carrito.map(item => {
-          const precioBase = parseInt(item.precio.replace('$', '').replaceAll('.', ''), 10)
+          const precioStr = item.precio ? String(item.precio) : '0'
+          const precioBase = parseInt(precioStr.replace('$', '').replaceAll('.', ''), 10) || 0
           const precioFinalUnidad = item.tamano === 'Familiar' ? precioBase + 3000 : precioBase
           return {
             pizzaId: item.id || "665f112233445566778899aa",
@@ -118,7 +121,7 @@ export default function CartModal() {
           }
         }),
         tipoEntrega: tipoEntrega === 'delivery' ? 'delivery' : 'retiro en local',
-        total: parseInt(totalAlerta.replace('$', '').replaceAll('.', ''), 10),
+        total: parseInt(totalAlerta.replace('$', '').replaceAll('.', ''), 10) || 0,
         estado: 'en_preparacion',
         fecha: new Date().toISOString()
       }
@@ -126,7 +129,7 @@ export default function CartModal() {
       // Ocultamos el modal al tiro
       setVerCarrito(false)
 
-      // Ejecutamos API en segundo plano
+      // Ejecutamos API
       await crearPedido(datosPedido)
 
       // Limpiamos todo
@@ -145,10 +148,8 @@ export default function CartModal() {
     }
   }
 
-  // Si verCarrito es false, no renderizamos absolutamente nada en el DOM
   if (!verCarrito) return null
 
-  // Función directa para cerrar y asegurar que se limpien los estados de renderizado
   const forzarCierre = () => {
     setVerCarrito(false)
   }
@@ -157,13 +158,12 @@ export default function CartModal() {
     <div className="modal-overlay" onClick={forzarCierre}>
       <div className="modal-content-custom" onClick={(e) => e.stopPropagation()} style={{ minHeight: 'auto', position: 'relative' }}>
         
-        {/* Forzamos que la X llame a forzarCierre directo */}
         <button type="button" className="modal-close-btn" onClick={forzarCierre} style={{ cursor: 'pointer', zIndex: 99 }}>&times;</button>
         
         <div className="modal-body-custom" style={{ textAlign: 'left' }}>
           <h2>🛒 Tu Pedido Actual</h2>
           
-          {carrito.length === 0 ? (
+          {!carrito || carrito.length === 0 ? (
             <div style={{ padding: '2rem 0', textAlign: 'center' }}>
               <p style={{ color: 'var(--muted)', margin: '0 0 1.5rem 0' }}>Tu carrito está vacío. ¡Añade una pizza! 🍕</p>
               <button 
@@ -180,7 +180,8 @@ export default function CartModal() {
               {/* Contenedor con scroll para los items */}
               <div className="carrito-scroll-container">
                 {carrito.map((item, index) => {
-                  const base = parseInt(item.precio.replace('$', '').replaceAll('.', ''), 10)
+                  const precioStr = item.precio ? String(item.precio) : '0'
+                  const base = parseInt(precioStr.replace('$', '').replaceAll('.', ''), 10) || 0
                   const precioFinalUnidad = item.tamano === 'Familiar' ? base + 3000 : base
                   const subtotalItem = precioFinalUnidad * item.cantidad
 

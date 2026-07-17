@@ -82,9 +82,6 @@ export default function Navbar() {
         <a href='/#features' onClick={closeMenu}>Nuestro Menú</a>
         <a href='/#footer' onClick={closeMenu}>Contacto</a>
         
-        <a href='/ver' onClick={closeMenu} style={{ color: 'var(--accent2)', fontWeight: 'bold' }}>
-          Administración 🍳
-        </a>
 
         <button className='navbar-cta' onClick={() => { abrirCarritoModal(); closeMenu(); }} style={{ border: 'none', cursor: 'pointer', textAlign: 'left', width: '100%' }}>
           <i className="bi bi-cart3"></i> Pedido ({carritoCount})
