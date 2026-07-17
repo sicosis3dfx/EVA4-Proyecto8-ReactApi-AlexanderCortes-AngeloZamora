@@ -59,67 +59,13 @@ export default function CartModal() {
     return '$' + suma.toLocaleString('es-CL')
   }
 
-  const pagarPedido = async (e) => {
+  const pagarPedido = (e) => {
     e.preventDefault()
 
     if (!telefonoCarrito.trim()) {
       setErrorCarrito('Por favor, ingresa un número de teléfono obligatorio.')
       return
     }
-
-    const reglaTelefono = /^\d{9}$/
-    if (!reglaTelefono.test(telefonoCarrito.trim())) {
-      setErrorCarrito('El teléfono debe contener exactamente los 9 dígitos numéricos (ej: 9XXXXXXXX).')
-      return
-    }
-
-    setErrorCarrito('')
-
-    // --- INTEGRACIÓN DE LA API DEL PROFESOR ---
-    try {
-      // 1. Estructuramos el pedido con el formato que el backend espera
-      const datosPedido = {
-        cliente: {
-          nombre: `Cliente (+56${telefonoCarrito})`, // Usamos el teléfono como identificador
-          telefono: telefonoCarrito
-        },
-        items: carrito.map(item => ({
-          nombre: item.nombre,
-          tamano: item.tamano,
-          cantidad: item.cantidad,
-          precioUnitario: item.tamano === 'Familiar' 
-            ? parseInt(item.precio.replace('$', '').replaceAll('.', ''), 10) + 3000 
-            : parseInt(item.precio.replace('$', '').replaceAll('.', ''), 10)
-        })),
-        total: parseInt(calcularTotal().replace('$', '').replaceAll('.', ''), 10),
-        estado: 'en_preparacion' // Estado inicial para la cocina del profesor
-      }
-
-      // 2. Enviamos la petición POST al servidor local del profesor
-      const respuesta = await fetch('http://localhost:3000/api/pedidos', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(datosPedido)
-      })
-
-      if (!respuesta.ok) {
-        throw new Error('No se pudo registrar el pedido en la base de datos.')
-      }
-
-      // 3. Si sale bien, mostramos el éxito y limpiamos el carrito como lo hacías tú
-      alert(`¡Tu pedido por un total de ${calcularTotal()} fue enviado con éxito a la cocina del profesor 🎉! Nos contactaremos al +56${telefonoCarrito}.`)
-      
-      setCarrito([])
-      setTelefonoCarrito([])
-      setVerCarrito(false)
-
-    } catch (error) {
-      console.error("Error al enviar el pedido:", error)
-      setErrorCarrito('Ocurrió un error al enviar el pedido al servidor. ¿Está el backend encendido?')
-    }
-  }
 
     const reglaTelefono = /^\d{9}$/
     if (!reglaTelefono.test(telefonoCarrito.trim())) {
