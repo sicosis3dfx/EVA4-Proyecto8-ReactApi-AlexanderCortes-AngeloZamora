@@ -1,18 +1,109 @@
-# React + Vite
+# 🍕 PizzaItalia - Pizzería Artesanal 👨‍🍳
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Proyecto para la asignatura de **Programación Front End** (Evaluación 3).
 
-Currently, two official plugins are available:
+## 🧬 Características del Proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* **Catálogo Dinámico:** Menú organizado mediante un acordeón interactivo de categorías.
+* **Modal de Configuración:** Permite seleccionar el tamaño de la pizza, la cantidad y calcular automáticamente el subtotal en pesos chilenos.
+* **Carrito de Compras:** Gestiona las órdenes agrupando productos idénticos y actualizando el total en tiempo real.
+* **Formulario de Reservas:** Sistema con validación interactiva en tiempo real que controla campos obligatorios, formato chileno de teléfono móvil, correo electrónico.
+* **Carrusel Artesanal:** Galería interactiva con transiciones suaves (*fade effect*) e imágenes almacenadas localmente.
+* **Diseño 100% Responsivo:** Adaptado para dispositivos móviles, tablets y equipos de escritorio sin utilizar frameworks CSS externos.
 
-## React Compiler
+# 🛠️ Instalación y Uso Local
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 📋 Requisitos Previos
 
-Note: This will impact Vite dev & build performances.
+Antes de ejecutar el proyecto es necesario tener instalado:
 
-## Expanding the Oxlint configuration
+- **Node.js LTS** (incluye npm)
+- **pnpm**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### 1. Instalar Node.js (solo si no está instalado)
+
+En Windows puedes instalarlo mediante **winget**:
+
+```bash
+winget install OpenJS.NodeJS.LTS
+```
+
+Verificar la instalación:
+
+```bash
+node --version
+npm --version
+```
+
+### 2. Instalar pnpm
+
+```bash
+npm install -g pnpm
+```
+
+Verificar la instalación:
+
+```bash
+pnpm --version
+```
+
+---
+
+## ⚙️ Ejecutar el Proyecto
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/sicosis3dfx/EVA3-Proyecto8-ReactBootstrap-AngeloZamora.git
+```
+
+### 2. Ingresar a la carpeta del proyecto
+
+En Windows:
+
+```bash
+cd mi-landing
+```
+
+### 3. Instalar las dependencias
+
+```bash
+pnpm install
+```
+
+### 4. Ejecutar el proyecto
+
+```bash
+pnpm dev
+```
+
+Una vez iniciado, Vite mostrará una dirección similar a:
+
+```text
+http://localhost:5173
+```
+
+También puedes acceder directamente a:
+
+```text
+https://pizzaitalia-angelo-zamora.vercel.app/
+```
+
+## 👨‍💻 Detalles de la Entrega
+
+* **Estudiante:** Angelo Zamora
+* **Docente:** Paulo Taipe
+* **Asignatura:** Programación Front End
+* **Fecha:** 02 de julio de 2026
+
+## 🧰 Tecnologías Utilizadas
+
+- React 19
+- Vite
+- JavaScript (ES6+)
+- CSS Nativo
+- Node.js
+- npm
+- pnpm
+- vercel
+
