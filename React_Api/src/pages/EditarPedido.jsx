@@ -146,7 +146,13 @@ export function EditarPedido() {
             style={{ width: '100%', padding: '0.8rem', background: '#111116', border: '1px solid var(--border)', borderRadius: '6px', color: '#fff', cursor: 'pointer', boxSizing: 'border-box' }}
           >
             <option value="en_preparacion">En Cocina 👩‍🍳</option>
-            <option value="en_camino">En Reparto 🛵</option>
+            
+            {/* === LOGICA DE NEGOCIO CONDICIONAL === */}
+            {/* Solo se despliega la opción "En Reparto" si el pedido original requiere despacho */}
+            {esDeliveryOriginal && (
+              <option value="en_camino">En Reparto 🛵</option>
+            )}
+            
             <option value="entregado">Entregado ✅</option>
           </select>
         </div>
