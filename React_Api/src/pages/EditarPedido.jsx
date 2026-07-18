@@ -65,7 +65,7 @@ export function EditarPedido() {
 
       await actualizarPedido(id, datosActualizados);
       alert('¡Pedido actualizado con éxito! 🍕');
-      navigate('/ver');
+      navigate('/adm');
     } catch (err) {
       alert('Error al guardar los cambios: ' + err.message);
     }

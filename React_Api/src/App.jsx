@@ -12,7 +12,7 @@ export default function App() {
       <main>
         <Routes>         
           <Route path="/" element={<AgregarPedido />} />          
-          <Route path="/ver" element={<VerPedidos />} /> 
+          <Route path="/adm" element={<VerPedidos />} /> 
           <Route path="/editar/:id" element={<EditarPedido />} />
         </Routes>
       </main>

@@ -6,7 +6,7 @@ export default function EliminarPedido() {
 
   useEffect(() => {
     
-    navigate("/ver");
+    navigate("/adm");
   }, [navigate]);
 
   return (
