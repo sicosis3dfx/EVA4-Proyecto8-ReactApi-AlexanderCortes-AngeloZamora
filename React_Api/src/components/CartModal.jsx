@@ -10,12 +10,10 @@ export default function CartModal() {
   const [direccionCliente, setDireccionCliente] = useState('')
   const [errorCarrito, setErrorCarrito] = useState('')
 
-  
   useEffect(() => {
     const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0)
     window.dispatchEvent(new CustomEvent('cart-updated-count', { detail: totalItems }))
   }, [carrito])
-
 
   useEffect(() => {
     const abrirModalHandler = () => setVerCarrito(true)
@@ -124,13 +122,9 @@ export default function CartModal() {
         fecha: new Date().toISOString()
       }
 
-      
       setVerCarrito(false)
-
-      
       await crearPedido(datosPedido)
 
-      
       setCarrito([])
       setTelefonoCarrito('')
       setNombreCliente('')
@@ -203,8 +197,7 @@ export default function CartModal() {
                   )
                 })}
               </div>
-
-              
+           
               <div style={{ marginTop: '1.2rem', marginBottom: '1.2rem' }}>
                 <label style={{ color: '#fff', display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', fontWeight: '700' }}>
                   ¿Cómo quieres recibir tu pizza? *
@@ -246,8 +239,7 @@ export default function CartModal() {
                   </button>
                 </div>
               </div>
-
-              
+   
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.5rem' }}>
                 
                 <div>
@@ -315,8 +307,7 @@ export default function CartModal() {
                 
                 {errorCarrito && <p className="msg-error" style={{ margin: 0, color: 'var(--accent)', fontSize: '0.85rem' }}>{errorCarrito}</p>}
               </div>
-
-             
+        
               <div className="carrito-total-box" style={{ marginBottom: '1.5rem' }}>
                 <span>Total a Pagar:</span>
                 <span className="total-amount">{calcularTotal()}</span>

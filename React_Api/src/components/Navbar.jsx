@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 export default function Navbar() {
   const [isopen, setIsOpen] = useState(false)
   const [carritoCount, setCarritoCount] = useState(0)
-
   const closeMenu = () => setIsOpen(false)
 
   useEffect(() => {
@@ -35,8 +34,6 @@ export default function Navbar() {
           <li><a href='/#features'>Nuestro Menú</a></li>
           <li><a href='/#footer'>Contacto</a></li>
           
-          
-    
           <li>
             <button className='navbar-cta' onClick={abrirCarritoModal} style={{ border: 'none', cursor: 'pointer' }}>
               <i className="bi bi-cart3"></i> Pedido ({carritoCount})

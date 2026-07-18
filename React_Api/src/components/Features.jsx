@@ -31,7 +31,6 @@ export default function Features() {
   const [categoriaActiva, setCategoriaActiva] = useState(0)
   const [fotoActiva, setFotoActiva] = useState(0)
   const [isFading, setIsFading] = useState(false)
-  
   const [pizzaSeleccionada, setPizzaSeleccionada] = useState(null)
   const [formData, setFormData] = useState({ nombre: '', correo: '', personas: '2', fecha: '', hora: '', telefono: '' })
   const [error, setError] = useState('')

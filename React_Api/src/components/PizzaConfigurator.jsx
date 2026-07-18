@@ -16,7 +16,6 @@ export default function PizzaConfigurator({ pizza, onClose }) {
   const baseNum = parseInt(pizza.precio.replace('$', '').replaceAll('.', ''), 10)
   const precioActualUnidad = tamano === 'Familiar' ? baseNum + 3000 : baseNum
   const precioTotalModal = precioActualUnidad * Math.max(1, cantidad)
-
   const ejecutarAgregarAlCarrito = () => {
     const nuevaPizzaConfigurada = {
       ...pizza,

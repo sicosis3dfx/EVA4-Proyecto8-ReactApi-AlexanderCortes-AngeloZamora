@@ -48,13 +48,10 @@ export default function PedidoCard({ pedido, onEliminar }) {
         flexDirection: 'column', 
         justifyContent: 'space-between', 
         border: '1px solid var(--border)',
-        
-        
         background: 'rgba(15, 15, 20, 0.85)', 
         backdropFilter: 'blur(12px)',           
         WebkitBackdropFilter: 'blur(12px)',     
-        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)', 
-        
+        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',  
         borderRadius: '12px',
         padding: '2rem 1.5rem',
         textAlign: 'left'
