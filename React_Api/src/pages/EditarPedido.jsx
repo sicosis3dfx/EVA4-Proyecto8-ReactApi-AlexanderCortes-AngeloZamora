@@ -158,7 +158,7 @@ export function EditarPedido() {
 
       
         <div style={{ display: 'flex', gap: '1rem' }}>
-          <button type="button" onClick={() => navigate('/ver')} className="btn-pizza-secondary" style={{ flex: 1, padding: '0.8rem 0', borderRadius: '6px', cursor: 'pointer' }}>
+          <button type="button" onClick={() => navigate('/adm')} className="btn-pizza-secondary" style={{ flex: 1, padding: '0.8rem 0', borderRadius: '6px', cursor: 'pointer' }}>
             Cancelar
           </button>
           <button type="submit" className="btn-primary" style={{ flex: 1, padding: '0.8rem 0', borderRadius: '6px', cursor: 'pointer' }}>

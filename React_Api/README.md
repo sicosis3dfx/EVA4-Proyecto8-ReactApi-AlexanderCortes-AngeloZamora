@@ -11,7 +11,7 @@ Proyecto de integración desarrollado con **React 19**, **Vite** y **CSS Nativo*
 - 🛒 **Carrito Inteligente:** Permite crear pedidos reales enviando la información directamente a la API.
 - 🚚 **Modal de Compra Dinámico:** Selección entre **Retiro en Local** o **Delivery**, mostrando formularios condicionales con validación en tiempo real.
 - 🔄 **Persistencia de Datos:** Los pedidos dejan de almacenarse localmente y pasan a mantenerse en una base de datos NoSQL mediante servicios REST.
-- 👨‍🍳 **Panel Administrativo Oculto:** Ruta administrativa `/ver` destinada a visualizar y administrar todas las comandas registradas.
+- 👨‍🍳 **Panel Administrativo Oculto:** Ruta administrativa `/adm` destinada a visualizar y administrar todas las comandas registradas.
 - 🔍 **Buscador de Pedidos:** Filtrado dinámico por nombre del cliente, ID de MongoDB o ID corto de la comanda.
 - ✨ **Interfaz Glassmorphism:** Diseño moderno utilizando efectos de desenfoque (`backdrop-filter`) para mejorar la experiencia visual del panel administrativo.
 - 📱 **Diseño 100% Responsivo:** Compatible con dispositivos móviles, tablets y escritorio.
@@ -33,7 +33,7 @@ El desarrollo del proyecto fue dividido según las operaciones del ciclo CRUD.
 
 ### ✅ Read (Leer)
 
-- Desarrollo de la vista administrativa `/ver`.
+- Desarrollo de la vista administrativa `/adm`.
 - Consumo del endpoint **GET** para recuperar pedidos.
 - Implementación del estado de carga (*Loading State*).
 - Desarrollo del buscador dinámico por nombre, ID de MongoDB e ID corto.
